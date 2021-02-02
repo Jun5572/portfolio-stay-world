@@ -1,0 +1,45 @@
+//この読み込み方法はcssの読み込み方法である。scssの@importとは少し書き方が違うので気を付ける
+//sassではscreen andを書くことができない
+// @import url('mobile.css') screen and (max-width: 600px);
+// @import url('desktop.css') screen and (min-width: 601px);
+
+ //モバイルファーストのスタイル適応
+@import 'modules/variables';
+@import 'modules/mixin';
+@import 'modules/appear';
+@import 'modules/button';
+@import 'modules/hero-slider';
+@import 'modules/text-animation';
+@import 'modules/image-slide';
+@import 'modules/mobile-menu';
+
+@import "breakpoints/base";
+
+@media (min-width: 480px) {
+  @import "breakpoints/480up";
+}
+
+@media (min-width: 600px) {
+  @import "breakpoints/600up";
+}
+
+@media (min-width: 960px) {
+  @import "breakpoints/960up";
+}
+
+@media (min-width: 1280px) {
+  @import "breakpoints/1280up";
+}
+
+//LETINAディスプレイ
+@media (min-resolution: 192dpi), (-webkit-min-device-pixcel-ratio: 2) {
+  @import 'breakpoints/2x';
+}
+
+@media print {
+  @import 'breakpoints/print';
+}
+//screen 画面表示時
+//print　印刷時のみ
+//all　印刷時か画面表示時(省略可能)
+//and条件はandでよいが、orの場合はカンマ, で記載する。
